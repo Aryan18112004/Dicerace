@@ -1,0 +1,25 @@
+{
+  "name": "dicerace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build:game": "npm run build -w @dicerace/game",
+    "dev:server": "npm run build:game && npm run dev -w @dicerace/server",
+    "dev:client": "npm run dev -w @dicerace/client",
+    "test": "npm run build:game && npm test -w @dicerace/game -w @dicerace/server",
+    "typecheck": "npm run build:game && npm run typecheck -w @dicerace/server -w @dicerace/client",
+    "build": "npm run build:game && npm run build -w @dicerace/server -w @dicerace/client",
+    "db:generate": "npm run prisma:generate -w @dicerace/server",
+    "db:migrate": "npm run prisma:migrate -w @dicerace/server",
+    "sync:rune": "cp packages/game/src/rng.ts rune-demo/src/rng.ts && sed -e 's#from \"./rng.js\"#from \"./rng\"#' packages/game/src/logic.ts > rune-demo/src/gameLogic.ts"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

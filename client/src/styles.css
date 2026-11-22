@@ -1,0 +1,43 @@
+:root {
+  --bg: #f4f5f9;
+  --card: #fff;
+  --text: #1b1d27;
+  --muted: #7a7f92;
+  --accent: #5b5bf0;
+  --danger: #d9435b;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14151c; --card: #1e2029; --text: #e8e9f0; --muted: #8b90a3; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+.app { max-width: 880px; margin: 0 auto; padding: 16px; }
+header { display: flex; justify-content: space-between; align-items: center; }
+header h1 { font-size: 1.4rem; }
+.who { display: flex; gap: 8px; align-items: center; }
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .columns { grid-template-columns: 1fr; } }
+.card { background: var(--card); border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.auth { max-width: 340px; margin: 40px auto; display: flex; flex-direction: column; gap: 10px; }
+input, select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--muted); background: transparent; color: inherit; font: inherit; }
+button { padding: 8px 14px; border-radius: 8px; border: 0; background: var(--accent); color: #fff; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.secondary { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+button.link { background: none; color: var(--accent); padding: 0 4px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.muted { color: var(--muted); font-size: .9rem; }
+.error { color: var(--danger); }
+.banner { background: #ffe9a8; color: #5a4600; padding: 8px 12px; border-radius: 8px; margin: 8px 0; }
+.banner.error { background: #ffd6dc; color: #7a1020; }
+.list { list-style: none; padding: 0; margin: 8px 0; }
+.list li { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(128,128,128,.2); }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 4px 6px; }
+tr.me { font-weight: 600; }
+.scores { list-style: none; padding: 0; }
+.scores li { display: flex; justify-content: space-between; padding: 8px 10px; border-radius: 8px; }
+.scores li.active { background: rgba(91,91,240,.15); }
+.die { font-size: 5rem; text-align: center; line-height: 1.1; margin: 8px 0; }
+.result { text-align: center; }
+.result ol { text-align: left; display: inline-block; }
